@@ -1,0 +1,76 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+    
+    .app-header {
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .app-content {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .app-footer {
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+
+    .words {
+        color:#444;
+        border:1px solid #CCC;
+        background:#DDD;
+    }
+
+    #game-container {
+      margin-top: 100px;
+    }
+    
+    #word-pair {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    
+    #score-container {
+      margin-top: 30px;
+    }
+    
+    #score {
+      font-size: 18px;
+    }
+
+    
