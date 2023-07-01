@@ -22,6 +22,48 @@ const synonymButton = document.getElementById("synonym-btn");
 const antonymButton = document.getElementById("antonym-btn");
 const neitherButton = document.getElementById("neither-btn");
 const scoreElement = document.getElementById("score");
+const scoreMessage = document.getElementById("score-message")
+const tokenMessage = document.getElementById("token-amount")
+const claimToken = document.getElementById("claim-btn")
+const playButton = document.getElementById("play-btn");
+const gameContainer = document.getElementById("game-container");
+const timerElement = document.createElement("div");
+// const appHeader = document.getElementById('app-header')
+timerElement.classList.add("timer");
+document.body.appendChild(timerElement);
+
+// Add click event listener to play button
+playButton.addEventListener("click", startGame);
+
+// Function to start the game
+function startGame() {
+  // appHeader.style.display = "none";
+  gameContainer.style.display = "block";
+  playButton.style.display - 'none';
+  displayWordPair();
+  startTimer(60); // 60 seconds timer
+}
+
+// Function to start the timer
+function startTimer(duration) {
+  let timer = duration;
+  let minutes, seconds;
+  let intervalId = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    if (--timer < 0) {
+      clearInterval(intervalId);
+      endGame();
+    }
+  }, 1000);
+}
+
 
 // Display initial word pair
 displayWordPair();
@@ -63,16 +105,18 @@ function updateScore() {
   scoreElement.textContent = `Score: ${score}/${wordPairs.length}`;
 }
 
-// Function to end the game
-function endGame() {
-  console.log("Game Over!");
-  console.log(`Your score: ${score}/${wordPairs.length}`);
-  disableButtons();
-}
 
 // Function to disable the answer buttons
 function disableButtons() {
   synonymButton.disabled = true;
   antonymButton.disabled = true;
   neitherButton.disabled = true;
+}
+
+function endGame() {
+  scoreMessage.textContent = `You scored a total of: ${score}/${wordPairs.length}`;
+  tokenMessage.textContent = `... meaning you have earned ${score} free YouCoins`;
+  claimToken.style.display = 'block';
+
+  disableButtons();
 }

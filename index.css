@@ -1,38 +1,60 @@
-
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
-    
-    .app-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
+    body {
       background-color: #f1f1f1;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      height: 100vh;
       font-family: Arial, sans-serif;
     }
     
-    .app-header {
-      width: 100%;
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
+    .container {
       text-align: center;
+      padding: 30px;
+
+      
     }
     
+    .title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .description {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-button:hover {
+      background-color: #555;
+    }
+
     .app-content {
       flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .wordContainer{
+      padding:50px;
     }
     
     .app-footer {
@@ -52,6 +74,8 @@
 
     #game-container {
       margin-top: 100px;
+      text-align: center;
+      display:none;
     }
     
     #word-pair {
@@ -63,6 +87,7 @@
       padding: 10px 20px;
       font-size: 16px;
       margin-right: 10px;
+
     }
     
     #score-container {
@@ -73,4 +98,114 @@
       font-size: 18px;
     }
 
+    
+    .wordSection{
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      gap:20px;
+
+    } 
+
+    /* #app-header {
+      width: 50%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 30px;
+      display:block;
+    } */
+    
+
+    .mainSection{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      gap:20px;
+      align-items: center;
+      margin: 30px;
+      position: relative;
+
+    }
+    #claim-btn{
+      display:none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 10px;
+
+    }
+
+    .btn:hover {
+      background-color: teal;
+      transition: background-color 0.3s;
+    }
+
+
+#play-btn {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display:block;
+}
+
+#play-btn:hover {
+  background-color: #555;
+}
+
+.timer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+    
+    /* Additional CSS for confetti animation */
+    @keyframes confetti {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+    
+    .confetti {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      animation: confetti 2s linear infinite;
+    }
+    
+    
+    .confetti:nth-child(2n) {
+      background-color: rgba(255, 255, 0, 0.8);
+    }
+    
+    .confetti:nth-child(3n) {
+      background-color: rgba(0, 255, 0, 0.8);
+    }
+    
+    .confetti:nth-child(4n) {
+      background-color: rgba(0, 0, 255, 0.8);
+    }
+    
+    .confetti:nth-child(5n) {
+      background-color: rgba(255, 0, 0, 0.8);
+    }
     

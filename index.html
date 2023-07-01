@@ -2,27 +2,33 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="index.css">
-  <title>App-like Webpage</title>  
+  <title>Word Game</title>
 </head>
 <body>
-<div class="app-container">
-        <div class="app-header">
-        <h1>Aptitude Test</h1>
-        </div>
-        <div class="app-content"></div>
-            <div id="word-pair" class='words'></div>
-            <div id="buttons">
-                <button class="btn" id="synonym-btn">Synonym (L)</button>
-                <button class="btn" id="antonym-btn">Antonym (R)</button>
-                <button class="btn" id="neither-btn">Neither (N)</button>
-            </div>
-            <div id="score-container">
-                <p id="score">Score: 0</p>
-            </div>
-        </div>
-    <div class="app-footer">
-      <p>&copy; 2023 My App. All rights reserved.</p>
+  <div class="mainSection">
+    <div class="container">
+      <h1 class="title">Word Game</h1>
+      <p class="description">Step into the world of words and test your linguistic skills!</p>
     </div>
+      <button id="play-btn">Click to Play</button>
+
+    <div id="game-container">
+        <h1 id="word-pair"></h1>
+        <div id="buttons">
+          <button class="btn" id="synonym-btn">Similar (L)</button>
+          <button class="btn" id="antonym-btn">Opposite (R)</button>
+          <button class="btn" id="neither-btn">Neither (N)</button>
+        </div>
+        <div id="score-container">
+          <p id="score">Score: 0</p>
+        </div>
+    </div>
+
+    <div id="score-message"></div>
+    <div id="token-amount"></div>
+    <button id="claim-btn">Claim Tokens</button>
   </div>
-<script src="main.js"></script>
+
+  <script src="main.js"></script>
 </body>
+</html>
