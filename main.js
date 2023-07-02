@@ -15,6 +15,7 @@ const wordPairs = [
 // Game variables
 let currentPairIndex = 0;
 let score = 0;
+let timer;
 
 // DOM elements
 const wordPairElement = document.getElementById("word-pair");
@@ -28,6 +29,8 @@ const claimToken = document.getElementById("claim-btn")
 const playButton = document.getElementById("play-btn");
 const gameContainer = document.getElementById("game-container");
 const timerElement = document.createElement("div");
+const completeSection = document.getElementById("completeSection");
+const succsessMessage = document.getElementById("succsesMessage")
 // const appHeader = document.getElementById('app-header')
 timerElement.classList.add("timer");
 document.body.appendChild(timerElement);
@@ -39,16 +42,36 @@ playButton.addEventListener("click", startGame);
 function startGame() {
   // appHeader.style.display = "none";
   gameContainer.style.display = "block";
-  playButton.style.display - 'none';
+  playButton.style.display ='none';
   displayWordPair();
   startTimer(60); // 60 seconds timer
 }
 
 // Function to start the timer
+// function startTimer(duration) {
+//   let timer = duration;
+//   let minutes, seconds;
+//   let intervalId = setInterval(function () {
+//     minutes = parseInt(timer / 60, 10);
+//     seconds = parseInt(timer % 60, 10);
+
+//     minutes = minutes < 10 ? "0" + minutes : minutes;
+//     seconds = seconds < 10 ? "0" + seconds : seconds;
+
+//     timerElement.textContent = `${minutes}:${seconds}`;
+
+//     if (--timer < 0) {
+//       clearInterval(intervalId);
+//       endGame();
+//     }
+//   }, 1000);
+// }
+
 function startTimer(duration) {
   let timer = duration;
   let minutes, seconds;
-  let intervalId = setInterval(function () {
+
+  function updateTimer() {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -57,13 +80,17 @@ function startTimer(duration) {
 
     timerElement.textContent = `${minutes}:${seconds}`;
 
-    if (--timer < 0) {
-      clearInterval(intervalId);
+    if (timer <= 0) {
+      clearTimeout(timer);
       endGame();
+    } else {
+      timer--;
+      setTimeout(updateTimer, 1000);
     }
-  }, 1000);
-}
+  }
 
+  updateTimer();
+}
 
 // Display initial word pair
 displayWordPair();
@@ -78,6 +105,8 @@ function displayWordPair() {
   const wordPair = wordPairs[currentPairIndex];
   wordPairElement.textContent = `${wordPair.word1} - ${wordPair.word2}`;
 }
+
+
 
 // Function to handle the player's answer
 function handleAnswer(answer) {
@@ -114,9 +143,13 @@ function disableButtons() {
 }
 
 function endGame() {
+  gameContainer.style.display = 'none'; // Hide the game container
+  completeSection.style.display = 'flex'; // Show t
   scoreMessage.textContent = `You scored a total of: ${score}/${wordPairs.length}`;
-  tokenMessage.textContent = `... meaning you have earned ${score} free YouCoins`;
+  tokenMessage.textContent = `... meaning you have earned ${score} free Cudos coins`;
   claimToken.style.display = 'block';
 
   disableButtons();
 }
+
+succsessMessage.textContent = `You have succesflly claimed your ${score}`;

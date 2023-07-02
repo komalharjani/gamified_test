@@ -73,7 +73,7 @@
     }
 
     #game-container {
-      margin-top: 100px;
+      margin-top: 10px;
       text-align: center;
       display:none;
     }
@@ -117,6 +117,12 @@
       display:block;
     } */
     
+    .logo{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
 
     .mainSection{
       display:flex;
@@ -133,6 +139,7 @@
       padding: 10px 20px;
       font-size: 16px;
       margin-right: 10px;
+      border-radius:10px;
 
     }
 
@@ -162,7 +169,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #333;
+  background-color: #75D2CD;
   color: #fff;
   padding: 10px;
   font-size: 16px;
@@ -207,5 +214,16 @@
     
     .confetti:nth-child(5n) {
       background-color: rgba(255, 0, 0, 0.8);
+    }
+
+    #completeSection{
+      display:none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap:20px;
+      background-color: #75D2CD;
+      border-radius: 20px;
+      padding: 20px;
     }
     
