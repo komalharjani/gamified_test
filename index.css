@@ -98,6 +98,11 @@
       font-size: 18px;
     }
 
+    #message{
+      font-weight:bold;
+      text-align: center;
+    }
+
     
     .wordSection{
       display:flex;
@@ -106,6 +111,8 @@
       gap:20px;
 
     } 
+
+    
 
     /* #app-header {
       width: 50%;

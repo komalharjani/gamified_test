@@ -27,10 +27,10 @@ const scoreMessage = document.getElementById("score-message")
 const tokenMessage = document.getElementById("token-amount")
 const claimToken = document.getElementById("claim-btn")
 const playButton = document.getElementById("play-btn");
+
 const gameContainer = document.getElementById("game-container");
 const timerElement = document.createElement("div");
 const completeSection = document.getElementById("completeSection");
-const succsessMessage = document.getElementById("succsesMessage")
 // const appHeader = document.getElementById('app-header')
 timerElement.classList.add("timer");
 document.body.appendChild(timerElement);
@@ -129,6 +129,8 @@ function handleAnswer(answer) {
   }
 }
 
+succsessMessage.textContent = `You have succesflly claimed your ${score}`;
+
 // Function to update the score on the GUI
 function updateScore() {
   scoreElement.textContent = `Score: ${score}/${wordPairs.length}`;
@@ -152,4 +154,10 @@ function endGame() {
   disableButtons();
 }
 
-succsessMessage.textContent = `You have succesflly claimed your ${score}`;
+claimToken.addEventListener("click", function() {
+  const scoreMessage = `You have successfully received ${score} tokens!`;
+  document.getElementById("score-message").textContent = scoreMessage;
+
+  // Open the cudos.html page
+  window.location.href = "cudos.html";
+});
